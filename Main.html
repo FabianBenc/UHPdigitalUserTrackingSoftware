@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Collect time</title>
+    <script type="text/javascript" src="jquery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready((function () {
+            $.ajax({
+                url: 'Table.php',
+                success: () => {
+                   
+                }
+            });
+            var start = null;
+            $(window).on('load', function (event) {
+                start = event.timeStamp;
+            });
+            $(window).on('unload', function (event) {
+                var time = event.timeStamp - start;
+                $.post('./Vrijemetxt.php', {
+                    time: time
+                });
+            })
+        }));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
