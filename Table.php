@@ -44,7 +44,7 @@
     function dodajVrijemeNaStranici($baza, $tablica, $ip){
         $vrijeme = getTime();
         echo '<p>' . $vrijeme;
-        $upit = "UPDATE $tablica SET vrijemeNaStranici = (vrijemeNaStranici + $vrijeme) / 1000 WHERE ip = '$ip'";
+        $upit = "UPDATE $tablica SET vrijemeNaStranici = (vrijemeNaStranici + $vrijeme) WHERE ip = '$ip'";
         echo '<p>' . $upit;
         mysqli_query($baza, $upit);
     }
